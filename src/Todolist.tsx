@@ -76,13 +76,13 @@ export function Todolist(props: PropsType) {
             }
         </ul>
         <div>
-            <Button variant={props.filter === 'all' ? "outlined" : "contained"}
+            <Button variant={props.filter === 'all' ? "contained" : "outlined"}
                     onClick={onAllClickHandler}>All
             </Button>
-            <Button color={'warning'} variant={props.filter === 'active' ? "outlined" : "contained"}
+            <Button color={'warning'} variant={props.filter === 'active' ? "contained" : "outlined"}
                     onClick={onActiveClickHandler}>Active
             </Button>
-            <Button color={'secondary'} variant={props.filter === 'completed' ? "outlined" : "contained"}
+            <Button color={'secondary'} variant={props.filter === 'completed' ? "contained" : "outlined"}
                     onClick={onCompletedClickHandler}>Completed
             </Button>
         </div>
