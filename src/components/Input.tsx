@@ -36,18 +36,16 @@ export const Input = (props: InputPropsType) => {
     return (
         <div>
             <TextField variant="outlined"
-                       label={'Your text'}
+                       label={error ? 'Title is required' : 'type out here...'}
                        size="small"
                        value={title}
                        onChange={onChangeHandler}
                        onKeyPress={onKeyPressHandler}
                        error={!!error}
-                       helperText={error}
             />
 
             <Button  variant="contained" style={{maxWidth: '38px', maxHeight: '38px', minWidth: '38px', minHeight: '38px'}}
                      onClick={addTask}>+</Button>
-         {/*   {error && <div className="error-message">{error}</div>}*/}
         </div>
     );
 };
