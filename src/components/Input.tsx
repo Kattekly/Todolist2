@@ -35,12 +35,6 @@ export const Input = (props: InputPropsType) => {
 
     return (
         <div>
-          {/*  <input value={title}
-                   onChange={onChangeHandler}
-                   onKeyPress={onKeyPressHandler}
-                   className={error ? "error" : ""}
-            />*/}
-
             <TextField variant="outlined"
                        label={'Your text'}
                        size="small"
