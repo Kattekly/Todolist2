@@ -42,7 +42,7 @@ export const Input = (props: InputPropsType) => {
             />*/}
 
             <TextField variant="outlined"
-                       label={'Type value'}
+                       label={'Your text'}
                        size="small"
                        value={title}
                        onChange={onChangeHandler}
