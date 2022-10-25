@@ -121,7 +121,7 @@ function App() {
                 </Toolbar>
             </AppBar>
             <Container fixed>
-                <Grid container style={{padding: "10px"}}>
+                <Grid container style={{padding: "40px 40px 40px 0px"}}>
                     <Input callback={addTodolist}/>
                 </Grid>
                 <Grid container spacing={3}>
@@ -138,7 +138,7 @@ function App() {
                             }
 
                             return <Grid item>
-                                <Paper style={{padding: "10px"}}>
+                                <Paper style={{padding: "10px"}}> {/*рамочки*/}
                                     <Todolist
                                         key={tl.id}
                                         id={tl.id}
