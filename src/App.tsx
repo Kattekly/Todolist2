@@ -5,7 +5,13 @@ import {v1} from 'uuid';
 import {Input} from "./components/Input";
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@mui/material";
 import {Menu} from "@mui/icons-material";
-import {addTodolistAC, editTodolistAC, removeTodolistAC, TodolistReducer} from "./state/TodolistReducer";
+import {
+    addTodolistAC,
+    changeFilterTodolistAC,
+    editTodolistAC,
+    removeTodolistAC,
+    TodolistReducer
+} from "./state/TodolistReducer";
 
 export type FilterValuesType = "all" | "active" | "completed";
 export type TodolistType = {
@@ -78,12 +84,16 @@ function App() {
         }
     }
 
-    function changeFilter(value: FilterValuesType, todolistId: string) {
+ /*   function changeFilter(value: FilterValuesType, todolistId: string) {
         let todolist = todolists.find(tl => tl.id === todolistId);
         if (todolist) {
             todolist.filter = value;
             setTodolists([...todolists])
         }
+    }*/
+
+    function changeFilter(value: FilterValuesType, todolistId: string) {
+        todolistsDispatch(changeFilterTodolistAC(value, todolistId))
     }
 
  /*   function removeTodolist(id: string) {
