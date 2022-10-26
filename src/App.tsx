@@ -5,7 +5,7 @@ import {v1} from 'uuid';
 import {Input} from "./components/Input";
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@mui/material";
 import {Menu} from "@mui/icons-material";
-import {addTodolistAC, removeTodolistAC, TodolistReducer} from "./state/TodolistReducer";
+import {addTodolistAC, editTodolistAC, removeTodolistAC, TodolistReducer} from "./state/TodolistReducer";
 
 export type FilterValuesType = "all" | "active" | "completed";
 export type TodolistType = {
@@ -118,8 +118,12 @@ function App() {
         })
     }
 
-    function editTodolist(todolistId: string, newTitle: string) {
+   /* function editTodolist(todolistId: string, newTitle: string) {
         setTodolists(todolists.map(el => el.id === todolistId ? {...el, title: newTitle} : el))
+    }
+*/
+    function editTodolist(todolistId: string, newTitle: string) {
+        todolistsDispatch(editTodolistAC(todolistId, newTitle))
     }
 
     return (
