@@ -5,7 +5,7 @@ import {v1} from 'uuid';
 import {Input} from "./components/Input";
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@mui/material";
 import {Menu} from "@mui/icons-material";
-import {removeTodolistAC, TodolistReducer} from "./state/TodolistReducer";
+import {addTodolistAC, removeTodolistAC, TodolistReducer} from "./state/TodolistReducer";
 
 export type FilterValuesType = "all" | "active" | "completed";
 export type TodolistType = {
@@ -100,11 +100,15 @@ function App() {
     }
 
 
-    function addTodolist(newTitle: string) {
+  /*  function addTodolist(newTitle: string) {
         const newTodolistId = v1()
         const newTodolist: TodolistType = {id: newTodolistId, title: newTitle, filter: "all"}
         setTodolists([...todolists, newTodolist])
         setTasks({...tasks, [newTodolistId]: []})
+    }*/
+
+    function addTodolist(newTitle: string) {
+        todolistsDispatch(addTodolistAC(newTitle))
     }
 
     function editTask(todolistId: string, taskId: string, newTitle: string) {
