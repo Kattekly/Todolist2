@@ -94,7 +94,7 @@ function App() {
     }*/
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
-        todolistsDispatch(changeFilterTodolistAC(value, todolistId))
+        todolistsDispatch(changeFilterTodolistAC(todolistId, value))
     }
 
  /*   function removeTodolist(id: string) {
