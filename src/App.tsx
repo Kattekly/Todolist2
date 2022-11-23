@@ -20,9 +20,6 @@ export type TasksStateType = {
 
 
 function App() {
-
-    console.log('App render')
-
     let todolistId1 = v1();
     let todolistId2 = v1();
 
