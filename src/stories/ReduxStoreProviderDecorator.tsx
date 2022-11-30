@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from "react-redux";
-import {AppRootStateType, store} from "../state/store";
-import {combineReducers, createStore, legacy_createStore} from "redux";
+import {AppRootStateType} from "../state/store";
+import {combineReducers, legacy_createStore} from "redux";
 import {tasksReducer} from "../state/tasks-reducer";
 import {todolistsReducer} from "../state/todolists-reducer";
 import {v1} from "uuid";

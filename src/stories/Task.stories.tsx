@@ -36,6 +36,7 @@ TaskIsNotDoneStory.args = {
 };
 
 
+/*
 const TemplateWork: ComponentStory<typeof Task> = (args) => {
 const [task, setTask] = useState(args.task)
 
@@ -64,4 +65,4 @@ const [task, setTask] = useState(args.task)
 
 export const TaskWorkStory = Template.bind({
     removeTask: action('RemoveTask')
-});
+});*/

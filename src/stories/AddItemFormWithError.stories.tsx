@@ -6,6 +6,7 @@ import {action} from "@storybook/addon-actions";
 import TextField from "@mui/material/TextField/TextField";
 import {IconButton} from "@mui/material";
 import {AddBox} from "@mui/icons-material";
+import {AddItemFormStory} from "./AddItemForm.stories";
 
 export default {
     title: 'Todolist/AddItemFormWithError',
@@ -60,3 +61,6 @@ const TemplatewithError: ComponentStory<typeof AddItemForm> = (args) => {
 }
 
 export const AddItemFormWithErrorStory = TemplatewithError.bind({})
+AddItemFormWithErrorStory.args = {
+    addItem: action('AddItemFormWithErrorStory clicked')
+};
