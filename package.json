@@ -47,6 +47,10 @@
       }
     ]
   },
+  "jest:integration": "jest -c integration/jest.config.js",
+  "test:integration": "start-server-and-test storybook http-get://localhost:9009 jest:integration",
+
+
   "browserslist": {
     "production": [
       ">0.2%",
@@ -71,7 +75,11 @@
     "@storybook/react": "^6.5.13",
     "@storybook/testing-library": "^0.0.13",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "jest-image-snapshot": "^6.0.0",
+    "jest-puppeteer": "^6.1.1",
     "prop-types": "^15.8.1",
+    "puppeteer": "^19.3.0",
+    "start-server-and-test": "^1.14.0",
     "webpack": "^5.75.0"
   }
 }
