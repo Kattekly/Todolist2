@@ -87,13 +87,13 @@ export const GetTasks = () => {
     const [state, setState] = useState<any>(null)
     const [todolistId, setTodolistId] = useState<any>("")
 
-   const getTaskTodo = () => {
-       todolistAPI.getTasks(todolistId)
-           .then((res) => {
-               console.log(res)
-               setState(res.data)
-           })
-   }
+    const getTaskTodo = () => {
+        todolistAPI.getTasks(todolistId)
+            .then((res) => {
+                console.log(res)
+                setState(res.data)
+            })
+    }
 
     return <div>{JSON.stringify(state)}
         <input placeholder={'todolistId'} value={todolistId} onChange={(e) => {
@@ -147,7 +147,7 @@ export const CreateTask = () => {
             <input placeholder={'todolistId'} value={todolistId} onChange={(e) => {
                 setTodolistId(e.currentTarget.value)
             }}/>
-            <input placeholder={'title'} value={taskTitle} onChange={(e) => {
+            <input placeholder={'taskTitle'} value={taskTitle} onChange={(e) => {
                 setTaskTitle(e.currentTarget.value)
             }}/>
             <button onClick={createTaskTodo}>create task</button>
@@ -159,7 +159,12 @@ export const UpdateTaskTitle = () => {
     const [state, setState] = useState<any>(null)
     const [taskId, setTaskId] = useState<any>("")
     const [todolistId, setTodolistId] = useState<any>("")
-    const [model, setModel] = useState<any>("")
+    const [taskTitle, setTaskTitle] = useState<any>("")
+    const [taskDescription, setTaskDescription] = useState<any>("")
+    const [status, setStatus] = useState<any>(0)
+    const [priority, setPriority] = useState<any>(0)
+    const [startDate, setStartDate] = useState<any>("")
+    const [deadline, setDeadline] = useState<any>("")
 
     const updateTask = () => {
         todolistAPI.updateTask(todolistId, taskId, model).then((res) => {
@@ -175,8 +180,23 @@ export const UpdateTaskTitle = () => {
             <input placeholder={'taskId'} value={taskId} onChange={(e) => {
                 setTaskId(e.currentTarget.value)
             }}/>
-            <input placeholder={'model'} value={model} onChange={(e) => {
-                setModel(e.currentTarget.value)
+            <input placeholder={'Task Title'} value={taskTitle} onChange={(e) => {
+                setTaskTitle(e.currentTarget.value)
+            }}/>
+            <input placeholder={'Description'} value={taskDescription} onChange={(e) => {
+                setTaskDescription(e.currentTarget.value)
+            }}/>
+            <input placeholder={'Status'} value={status} onChange={(e) => {
+                setStatus(e.currentTarget.value)
+            }}/>
+            <input placeholder={'Priority'} value={priority} onChange={(e) => {
+                setPriority(e.currentTarget.value)
+            }}/>
+            <input placeholder={'startDate'} value={startDate} onChange={(e) => {
+                setStartDate(e.currentTarget.value)
+            }}/>
+            <input placeholder={'deadline'} value={deadline} onChange={(e) => {
+                setDeadline(e.currentTarget.value)
             }}/>
             <button onClick={updateTask}>update task</button>
         </div>
