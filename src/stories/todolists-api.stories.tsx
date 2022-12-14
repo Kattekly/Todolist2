@@ -111,7 +111,6 @@ export const DeleteTask = () => {
 
     const deleteTask = () => {
         todolistAPI.deleteTask(todolistId, taskId)
-
             .then((res) => {
                 setState(res.data)
             })
@@ -158,17 +157,28 @@ export const CreateTask = () => {
 
 export const UpdateTaskTitle = () => {
     const [state, setState] = useState<any>(null)
-    useEffect(() => {
+    const [taskId, setTaskId] = useState<any>("")
+    const [todolistId, setTodolistId] = useState<any>("")
+    const [model, setModel] = useState<any>("")
 
-        let title = "DDDDDDDD"
-        let todolistId = "c2181829-204b-485d-b7e4-523d4d7c0001"
-        let model = {}
-
-        todolistAPI.updateTask(todolistId, title, model).then((res) => {
+    const updateTask = () => {
+        todolistAPI.updateTask(todolistId, taskId, model).then((res) => {
             setState(res.data)
         })
+    }
 
-    }, [])
-
-    return <div>{JSON.stringify(state)}</div>
+    return <div>{JSON.stringify(state)}
+        <div>
+            <input placeholder={'todolistId'} value={todolistId} onChange={(e) => {
+                setTodolistId(e.currentTarget.value)
+            }}/>
+            <input placeholder={'taskId'} value={taskId} onChange={(e) => {
+                setTaskId(e.currentTarget.value)
+            }}/>
+            <input placeholder={'model'} value={model} onChange={(e) => {
+                setModel(e.currentTarget.value)
+            }}/>
+            <button onClick={updateTask}>update task</button>
+        </div>
+    </div>
 }
