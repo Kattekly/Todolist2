@@ -75,7 +75,7 @@ export const UpdateTodolistTitle = () => {
 export const GetTasks = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
-        const todolistId = ''
+        const todolistId = '9075cffc-3db4-492a-9f36-b5320fd53624'
         todolistAPI.getTasks(todolistId)
             /*   axios.get("https://social-network.samuraijs.com/api/1.1/todo-lists", settings)*/
             .then((res) => {
