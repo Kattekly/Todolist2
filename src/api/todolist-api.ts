@@ -49,8 +49,8 @@ type UpdateTaskType = {
     description: string
     status: number
     priority: number
-    startDate: string
-    deadline: string
+    startDate: string | null
+    deadline: string | null
 }
 
 export const todolistAPI = {

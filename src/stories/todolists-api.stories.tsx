@@ -167,7 +167,14 @@ export const UpdateTaskTitle = () => {
     const [deadline, setDeadline] = useState<any>("")
 
     const updateTask = () => {
-        todolistAPI.updateTask(todolistId, taskId, model).then((res) => {
+        todolistAPI.updateTask(todolistId, taskId, {
+            deadline: null,
+            description: taskDescription,
+            priority: priority,
+            startDate: null,
+            status: status,
+            title: taskTitle
+        }).then((res) => {
             setState(res.data)
         })
     }
