@@ -25,15 +25,7 @@ type PostType = {
     }
 }
 
-
-type updateType = {
-    data: {}
-    fieldsErrors: string[]
-    messages: string[]
-    resultCode: number
-}
-
-type deleteType = {
+type DeleteUpdateType = {
     resultCode: number
     messages: string[]
     data: {}
@@ -41,7 +33,7 @@ type deleteType = {
 
 export const todolistAPI = {
     updateTodolist(todolistId: string, title: string) {
-        return instance.put<updateType>(`todo-lists/${todolistId}`, {title: title})
+        return instance.put<DeleteUpdateType>(`todo-lists/${todolistId}`, {title: title})
     },
     getTodolist() {
         return instance.get<TodolistPropsType[]>("todo-lists")
@@ -50,6 +42,6 @@ export const todolistAPI = {
         return instance.post<PostType>("todo-lists", {title})
     },
     deleteTodolist(todolistId: string) {
-        return instance.delete<deleteType>(`todo-lists/${todolistId}`)
+        return instance.delete<DeleteUpdateType>(`todo-lists/${todolistId}`)
     }
 }
