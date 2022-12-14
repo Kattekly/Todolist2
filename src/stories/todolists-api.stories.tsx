@@ -9,7 +9,6 @@ export const GetTodolists = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
         todolistAPI.getTodolist()
-            /*   axios.get("https://social-network.samuraijs.com/api/1.1/todo-lists", settings)*/
             .then((res) => {
                 console.log(res)
                 setState(res.data)
@@ -20,7 +19,6 @@ export const GetTodolists = () => {
 export const CreateTodolist = () => {
     const [state, setState] = useState<any>(null)
     const [todoTitle, setTodoTitle] = useState<any>(null)
-
 
 
     const createTodolistTitle = () => {
@@ -46,12 +44,12 @@ export const DeleteTodolist = () => {
     const [state, setState] = useState<any>(null)
     const [todolistId, setTodolistId] = useState<any>("")
 
-   const deleteTodolist = () => {
-       todolistAPI.deleteTodolist(todolistId)
-           .then((res) => {
-               setState(res.data)
-           })
-   }
+    const deleteTodolist = () => {
+        todolistAPI.deleteTodolist(todolistId)
+            .then((res) => {
+                setState(res.data)
+            })
+    }
 
     return <div>{JSON.stringify(state)}
         <input placeholder={'todolistId'} value={todolistId} onChange={(e) => {
@@ -62,18 +60,27 @@ export const DeleteTodolist = () => {
 }
 export const UpdateTodolistTitle = () => {
     const [state, setState] = useState<any>(null)
-    useEffect(() => {
-        let title = "gggg"
-        let todolistId = "9075cffc-3db4-492a-9f36-b5320fd53624"
+    const [todolistId, setTodolistId] = useState<any>("")
+    const [todolistTitle, setTodolistTitle] = useState<any>("")
 
-        /*      axios.put(`https://social-network.samuraijs.com/api/1.1/todo-lists/${todolistId}`, {title: 'AAAAAAA'}, settings)*/
-        todolistAPI.updateTodolist(todolistId, title).then((res) => {
+
+    const updateTodolistTitle = () => {
+        todolistAPI.updateTodolist(todolistId, todolistTitle).then((res) => {
             setState(res.data)
         })
+    }
 
-    }, [])
-
-    return <div>{JSON.stringify(state)}</div>
+    return <div>{JSON.stringify(state)}
+        <div>
+            <input placeholder={'todolistId'} value={todolistId} onChange={(e) => {
+                setTodolistId(e.currentTarget.value)
+            }}/>
+            <input placeholder={'newTodolistTitle'} value={todolistTitle} onChange={(e) => {
+                setTodolistTitle(e.currentTarget.value)
+            }}/>
+            <button onClick={updateTodolistTitle}>update todolist</button>
+        </div>
+    </div>
 }
 
 export const GetTasks = () => {
