@@ -38,7 +38,7 @@ export type TaskType = {
     addedDate: string
 }
 
-type GetTaskResponse = {
+type GetTasksResponse = {
     items: Array<TaskType>
     totalCount: number
     error: string | null
@@ -59,6 +59,9 @@ export const todolistAPI = {
         return instance.delete<ResponseType<{}>>(`todo-lists/${todolistId}`)
     },
     getTasks(todolistId: string) {
-        return instance.get<GetTaskResponse>(`todo-lists/${todolistId}/tasks`)
+        return instance.get<GetTasksResponse>(`todo-lists/${todolistId}/tasks`)
+    },
+    deleteTask(todolistId: string, taskId: string) {
+        return instance.delete<ResponseType<{}>>(`todo-lists/${todolistId}/tasks${taskId}`)
     }
 }
