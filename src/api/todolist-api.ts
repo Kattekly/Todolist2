@@ -17,7 +17,7 @@ type TodolistPropsType = {
     title: string
 }
 
-type ResponseType<X> = {
+type ResponseType<X = {}> = {
     resultCode: number
     messages: string[]
     data: X
@@ -47,7 +47,7 @@ type GetTasksResponse = {
 
 export const todolistAPI = {
     updateTodolist(todolistId: string, title: string) {
-        return instance.put<ResponseType<{}>>(`todo-lists/${todolistId}`, {title: title})
+        return instance.put<ResponseType>(`todo-lists/${todolistId}`, {title: title})
     },
     getTodolist() {
         return instance.get<TodolistPropsType[]>("todo-lists")
@@ -56,12 +56,18 @@ export const todolistAPI = {
         return instance.post<ResponseType<{item: TodolistPropsType}>>("todo-lists", {title})
     },
     deleteTodolist(todolistId: string) {
-        return instance.delete<ResponseType<{}>>(`todo-lists/${todolistId}`)
+        return instance.delete<ResponseType>(`todo-lists/${todolistId}`)
     },
     getTasks(todolistId: string) {
         return instance.get<GetTasksResponse>(`todo-lists/${todolistId}/tasks`)
     },
     deleteTask(todolistId: string, taskId: string) {
-        return instance.delete<ResponseType<{}>>(`todo-lists/${todolistId}/tasks${taskId}`)
+        return instance.delete<ResponseType>(`todo-lists/${todolistId}/tasks${taskId}`)
+    },
+    createTask(todolistId: string, title: string) {
+        return instance.post<ResponseType<{item: TodolistPropsType}>>(`todo-lists/${todolistId}/tasks`, {title})
+    },
+    updateTask(todolistId: string, title: string, taskId: string) {
+        return instance.put<ResponseType<TaskType>>(`todo-lists/${todolistId}/tasks${taskId}`, {title: title})
     }
 }
