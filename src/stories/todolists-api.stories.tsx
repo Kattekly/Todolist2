@@ -199,12 +199,12 @@ export const UpdateTaskTitle = () => {
             <input placeholder={'Priority'} value={priority} onChange={(e) => {
                 setPriority(e.currentTarget.value)
             }}/>
-            <input placeholder={'startDate'} value={startDate} onChange={(e) => {
-                setStartDate(e.currentTarget.value)
-            }}/>
-            <input placeholder={'deadline'} value={deadline} onChange={(e) => {
-                setDeadline(e.currentTarget.value)
-            }}/>
+            {/*<input placeholder={'startDate'} value={startDate} onChange={(e) => {*/}
+            {/*    setStartDate(e.currentTarget.value)*/}
+            {/*}}/>*/}
+            {/*<input placeholder={'deadline'} value={deadline} onChange={(e) => {*/}
+            {/*    setDeadline(e.currentTarget.value)*/}
+            {/*}}/>*/}
             <button onClick={updateTask}>update task</button>
         </div>
     </div>
