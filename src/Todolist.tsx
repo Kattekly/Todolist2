@@ -8,11 +8,6 @@ import {Task} from './Task'
 import {FilterValuesType} from './App';
 import {TaskStatuses, TaskType} from "./api/todolist-api";
 
-/*export type TaskType = {
-    id: string
-    title: string
-    status: TaskStatuses
-}*/
 
 type PropsType = {
     id: string
