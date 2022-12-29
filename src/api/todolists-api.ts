@@ -1,4 +1,5 @@
-import axios, { AxiosResponse } from 'axios'
+import axios, {AxiosResponse} from 'axios'
+import {FormikErrorType} from "../features/Login/Login";
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.1/',
@@ -35,6 +36,14 @@ export const todolistsAPI = {
         return instance.put<UpdateTaskModelType, AxiosResponse<ResponseType<{ item: TaskType }>>>(`todo-lists/${todolistId}/tasks/${taskId}`, model);
     }
 }
+
+
+export const authAPI = {
+    login(data: FormikErrorType) {
+        return (instance.post<ResponseType<{ userId: number }>>('auth/login', data))
+    }
+}
+
 
 // types
 export type TodolistType = {
