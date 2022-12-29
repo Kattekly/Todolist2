@@ -28,12 +28,13 @@ export const loginTC = (data: FormikErrorType) => async (dispatch: Dispatch<Acti
     try {
         const res = await authAPI.login(data)
         if (res.data.resultCode === 0) {
-
+            dispatch(setAppStatusAC('succeeded'))
         } else {
             handleServerAppError(res.data, dispatch)
         }
-    } catch (e) {
-
+    } catch (error) {
+        //@ts-ignored
+        handleServerNetworkError(error, dispatch)
     }
 
 }
