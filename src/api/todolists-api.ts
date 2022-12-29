@@ -40,7 +40,7 @@ export const todolistsAPI = {
 
 export const authAPI = {
     login(data: FormikErrorType) {
-        return (instance.post<ResponseType<{ userId: number }>>('auth/login', data))
+        return (instance.post<ResponseType<{ id: number }>>('auth/login', data))
     }
 }
 

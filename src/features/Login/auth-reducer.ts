@@ -1,5 +1,5 @@
-import { Dispatch } from 'redux'
-import { SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType } from '../../app/app-reducer'
+import {Dispatch} from 'redux'
+import {SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer'
 import {authAPI, todolistsAPI} from "../../api/todolists-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import {addTaskAC} from "../TodolistsList/tasks-reducer";
@@ -23,10 +23,17 @@ export const setIsLoggedInAC = (value: boolean) =>
     ({type: 'login/SET-IS-LOGGED-IN', value} as const)
 
 // thunks
-export const loginTC = (data: FormikErrorType) => (dispatch: Dispatch<ActionsType>) => {
+export const loginTC = (data: FormikErrorType) => async (dispatch: Dispatch<ActionsType>) => {
     dispatch(setAppStatusAC('loading'))
-    authAPI.login(data)
-        .then(res => {})
+    try {
+        const res = await authAPI.login(data)
+        if (res.data.resultCode === 0) {
+
+        }
+    } catch (e) {
+
+    }
+
 }
 
 /*export const addTaskTC = (title: string, todolistId: string) => (dispatch: Dispatch<ActionsType | SetAppErrorActionType | SetAppStatusActionType>) => {
