@@ -58,12 +58,14 @@ export const Login = () => {
                                    name={'email'}
                                    onChange={formik.handleChange}
                                    value={formik.values.email}/>
+                        {formik.errors.email && <div style={{color: "red"}}>{formik.errors.email}</div>}
                         <TextField type="password" label="Password"
                                    margin="normal"
                                    name={'password'}
                                    onChange={formik.handleChange}
                                    value={formik.values.password}
                         />
+                        {formik.errors.password && <div style={{color: "red"}}>{formik.errors.password}</div>}
                         <FormControlLabel label={'Remember me'}
                                           control={<Checkbox name={'rememberMe'}
                                                              onChange={formik.handleChange}
