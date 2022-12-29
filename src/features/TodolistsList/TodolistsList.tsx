@@ -69,7 +69,7 @@ export const TodolistsList: React.FC = () => {
         dispatch(thunk)
     }, [dispatch])
 
-    if(!isLoggedIn) {
+    if (!isLoggedIn) {
         return <Navigate to={'/login'}/>
     }
 
