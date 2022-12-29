@@ -34,10 +34,10 @@ function App() {
                 {status === 'loading' && <LinearProgress/>}
             </AppBar>
             <Container fixed>
-
-                    <TodolistsList />
-                    <Login/>
-
+                <Routes>
+                    <Route path={'/'} element={<TodolistsList />}/>
+                    <Route path={'/'} element={<Login />}/>
+                </Routes>
                 <TodolistsList/>
             </Container>
         </div>
