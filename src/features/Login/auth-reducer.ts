@@ -1,8 +1,7 @@
 import {Dispatch} from 'redux'
 import {SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer'
-import {authAPI, todolistsAPI} from "../../api/todolists-api";
+import {authAPI} from "../../api/todolists-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
-import {addTaskAC} from "../TodolistsList/tasks-reducer";
 import {FormikErrorType} from "./Login";
 
 const initialState = {
@@ -28,6 +27,7 @@ export const loginTC = (data: FormikErrorType) => async (dispatch: Dispatch<Acti
     try {
         const res = await authAPI.login(data)
         if (res.data.resultCode === 0) {
+            dispatch(setIsLoggedInAC(true))
             dispatch(setAppStatusAC('succeeded'))
         } else {
             handleServerAppError(res.data, dispatch)
