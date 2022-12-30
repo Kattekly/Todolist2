@@ -41,11 +41,17 @@ export const todolistsAPI = {
 export const authAPI = {
     login(data: FormikErrorType) {
         return (instance.post<ResponseType<{ id: number }>>('auth/login', data))
+    },
+    me() {
+        return instance.get<GetTasksResponse>(`auth/me`);
     }
 }
 
 
 // types
+e
+
+
 export type TodolistType = {
     id: string
     title: string
