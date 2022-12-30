@@ -38,7 +38,7 @@ function App() {
     }
 
     const logoutHandler = () => {
-        dispatch(logoutTC)
+        dispatch(logoutTC())
     }
 
 
