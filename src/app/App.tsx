@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import './App.css'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
 import {useAppDispatch, useAppSelector} from './store'
-import {RequestStatusType} from './app-reducer'
+import {meTc, RequestStatusType} from './app-reducer'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -14,7 +14,6 @@ import {Menu} from '@mui/icons-material';
 import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
 import {Navigate, Route, Routes} from "react-router-dom";
 import {Login} from "../features/Login/Login";
-import {meTc} from "../features/Login/auth-reducer";
 import {CircularProgress} from "@mui/material";
 
 
