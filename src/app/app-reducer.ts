@@ -42,7 +42,6 @@ export const meTc = () => async (dispatch: Dispatch<ActionsType>) => {
         const res = await authAPI.me()
         if (res.data.resultCode === 0) {
             dispatch(setIsLoggedInAC(true))
-            dispatch(setIsInitializedAC(true))
             dispatch(setAppStatusAC('succeeded'))
         } else {
             handleServerAppError(res.data, dispatch)
@@ -50,8 +49,9 @@ export const meTc = () => async (dispatch: Dispatch<ActionsType>) => {
     } catch (error) {
         //@ts-ignored
         handleServerNetworkError(error, dispatch)
+    }finally {
+        dispatch(setIsInitializedAC(true))
     }
-
 }
 
 
