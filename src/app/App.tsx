@@ -15,6 +15,7 @@ import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
 import {Navigate, Route, Routes} from "react-router-dom";
 import {Login} from "../features/Login/Login";
 import {CircularProgress} from "@mui/material";
+import {logoutTC} from "../features/Login/auth-reducer";
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
     }
 
     const logoutHandler = () => {
-        dispatch()
+        dispatch(logoutTC)
     }
 
 

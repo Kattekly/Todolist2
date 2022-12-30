@@ -39,6 +39,9 @@ export const todolistsAPI = {
 
 
 export const authAPI = {
+    logout() {
+        return instance.delete<ResponseType>('auth/login')
+    },
     login(data: FormikErrorType) {
         return (instance.post<ResponseType<{ id: number }>>('auth/login', data))
     },
