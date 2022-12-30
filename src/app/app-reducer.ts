@@ -49,7 +49,7 @@ export const meTc = () => async (dispatch: Dispatch<ActionsType>) => {
     } catch (error) {
         //@ts-ignored
         handleServerNetworkError(error, dispatch)
-    }finally {
+    } finally {
         dispatch(setIsInitializedAC(true))
     }
 }

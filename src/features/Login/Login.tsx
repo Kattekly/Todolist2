@@ -48,7 +48,7 @@ export const Login = () => {
         },
     })
 
-    if(isLoggedIn) {
+    if (isLoggedIn) {
         return <Navigate to={'/'}/>
     }
 
@@ -96,7 +96,7 @@ export const Login = () => {
                                               {...formik.getFieldProps('rememberMe')}
                                               checked={formik.values.rememberMe}
                                           />
-                        }/>
+                                          }/>
                         <Button type={'submit'} variant={'contained'} color={'primary'}>
                             Login
                         </Button>
