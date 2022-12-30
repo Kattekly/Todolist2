@@ -15,6 +15,7 @@ import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
 import {Navigate, Route, Routes} from "react-router-dom";
 import {Login} from "../features/Login/Login";
 import {meTc} from "../features/Login/auth-reducer";
+import {CircularProgress} from "@mui/material";
 
 
 function App() {
@@ -24,6 +25,13 @@ function App() {
         dispatch(meTc())
     }, [])
 
+
+    if (!isInitialized) {
+        return <div
+            style={{position: 'fixed', top: '30%', textAlign: 'center', width: '100%'}}>
+            <CircularProgress/>
+        </div>
+    }
 
     return (
         <div className="App">
