@@ -19,7 +19,7 @@ import {CircularProgress} from "@mui/material";
 
 function App() {
     const status = useAppSelector<RequestStatusType>((state) => state.app.status)
-    const isInitialized = useAppSelector<boolean>((state) => state.auth.isInitialized)
+    const isInitialized = useAppSelector<boolean>((state) => state.app.isInitialized)
 
 
     const dispatch = useAppDispatch()
@@ -35,6 +35,11 @@ function App() {
         </div>
     }
 
+    const logoutHandler = () => {
+        dispatch()
+    }
+
+
     return (
         <div className="App">
             <ErrorSnackbar/>
@@ -46,7 +51,7 @@ function App() {
                     <Typography variant="h6">
                         News
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit" onClick={logoutHandler}>Log out</Button>
                 </Toolbar>
                 {status === 'loading' && <LinearProgress/>}
             </AppBar>
