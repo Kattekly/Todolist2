@@ -42,7 +42,7 @@ export const loginTC = (data: FormikErrorType) => async (dispatch: Dispatch<Acti
 export const meTc = () => async (dispatch: Dispatch<ActionsType>) => {
     dispatch(setAppStatusAC('loading'))
     try {
-        const res = await authAPI.login(data)
+        const res = await authAPI.me()
         if (res.data.resultCode === 0) {
             dispatch(setIsLoggedInAC(true))
             dispatch(setAppStatusAC('succeeded'))
