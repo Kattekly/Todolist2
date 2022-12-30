@@ -1,6 +1,7 @@
 import {todolistsAPI, TodolistType} from '../../api/todolists-api'
 import {Dispatch} from 'redux'
 import {RequestStatusType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer'
+import {handleServerNetworkError} from "../../utils/error-utils";
 
 const initialState: Array<TodolistDomainType> = []
 
@@ -49,7 +50,9 @@ export const fetchTodolistsTC = () => {
             .then((res) => {
                 dispatch(setTodolistsAC(res.data))
                 dispatch(setAppStatusAC('succeeded'))
-            })
+            }).catch((error) => {
+            handleServerNetworkError(error, dispatch)
+        })
     }
 }
 export const removeTodolistTC = (todolistId: string) => {
@@ -63,7 +66,11 @@ export const removeTodolistTC = (todolistId: string) => {
                 dispatch(removeTodolistAC(todolistId))
                 //скажем глобально приложению, что асинхронная операция завершена
                 dispatch(setAppStatusAC('succeeded'))
-            })
+            }).catch((error) => {
+            dispatch(changeTodolistEntityStatusAC(todolistId, 'idle'))
+            dispatch(setAppStatusAC('idle'))
+            handleServerNetworkError(error, dispatch)
+        })
     }
 }
 export const addTodolistTC = (title: string) => {
@@ -73,15 +80,20 @@ export const addTodolistTC = (title: string) => {
             .then((res) => {
                 dispatch(addTodolistAC(res.data.data.item))
                 dispatch(setAppStatusAC('succeeded'))
-            })
+            }).catch((error) => {
+            handleServerNetworkError(error.message, dispatch)
+        })
     }
 }
+
 export const changeTodolistTitleTC = (id: string, title: string) => {
     return (dispatch: Dispatch<ActionsType>) => {
         todolistsAPI.updateTodolist(id, title)
             .then((res) => {
                 dispatch(changeTodolistTitleAC(id, title))
-            })
+            }).catch((error) => {
+            handleServerNetworkError(error, dispatch)
+        })
     }
 }
 
