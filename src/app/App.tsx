@@ -20,6 +20,9 @@ import {CircularProgress} from "@mui/material";
 
 function App() {
     const status = useAppSelector<RequestStatusType>((state) => state.app.status)
+    const isInitialized = useAppSelector<boolean>((state) => state.auth.isInitialized)
+
+
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(meTc())

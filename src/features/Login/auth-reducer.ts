@@ -5,7 +5,8 @@ import {handleServerAppError, handleServerNetworkError} from "../../utils/error-
 import {FormikErrorType} from "./Login";
 
 const initialState = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    isInitialized: false
 }
 type InitialStateType = typeof initialState
 
