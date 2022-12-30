@@ -21,6 +21,7 @@ import {logoutTC} from "../features/Login/auth-reducer";
 function App() {
     const status = useAppSelector<RequestStatusType>((state) => state.app.status)
     const isInitialized = useAppSelector<boolean>((state) => state.app.isInitialized)
+    const isLoggedIn = useAppSelector<boolean>((state) => state.auth.isLoggedIn)
 
 
     const dispatch = useAppDispatch()
@@ -52,7 +53,7 @@ function App() {
                     <Typography variant="h6">
                         News
                     </Typography>
-                    <Button color="inherit" onClick={logoutHandler}>Log out</Button>
+                    {isLoggedIn && <Button color="inherit" onClick={logoutHandler}>Log out</Button>}
                 </Toolbar>
                 {status === 'loading' && <LinearProgress/>}
             </AppBar>
