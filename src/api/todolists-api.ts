@@ -43,13 +43,17 @@ export const authAPI = {
         return (instance.post<ResponseType<{ id: number }>>('auth/login', data))
     },
     me() {
-        return instance.get<GetTasksResponse>(`auth/me`);
+        return instance.get<ResponseType<MeResponseType>>(`auth/me`);
     }
 }
 
 
 // types
-e
+export type MeResponseType = {
+    id: number
+    email: string
+    login: string
+}
 
 
 export type TodolistType = {
