@@ -35,7 +35,6 @@ export const loginTC = (data: FormikErrorType) => async (dispatch: Dispatch<Acti
             handleServerAppError(res.data, dispatch)
         }
     } catch (error) {
-        //@ts-ignored
         handleServerNetworkError(error, dispatch)
     }
 
